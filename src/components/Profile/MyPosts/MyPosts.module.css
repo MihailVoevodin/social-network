@@ -1,0 +1,18 @@
+.posts {
+    padding: 20px;
+}
+
+.myPosts_title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.addPost_btn {
+    display: block;
+    margin-top: 20px;
+}
+
+.addPost_text {
+    resize: none;
+    margin-top: 20px;
+}

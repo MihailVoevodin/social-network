@@ -1,0 +1,26 @@
+.nav{
+    grid-area: n;
+    background-color: rebeccapurple;
+    padding: 20px;
+}
+
+.item {
+    color: #fff;
+    text-decoration: none;
+}
+
+.active {
+    color: gold;
+    text-decoration: none;
+}
+
+.friends_link {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.friends {
+    display: flex;
+    flex-wrap: wrap;
+}
+

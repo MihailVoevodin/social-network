@@ -1,0 +1,33 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+}
+
+.items {
+    padding: 20px;
+}
+
+.item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.messages {
+    padding: 20px;
+}
+
+.message {
+    color: #fff;
+}
+
+.active {
+    color: black;
+}
+
+.newMessage {
+    margin-top: 50px;
+}
+
+.sendMessage {
+    display: block;
+}

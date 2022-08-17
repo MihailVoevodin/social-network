@@ -1,0 +1,26 @@
+.user {
+    display: flex;
+}
+
+.userPhoto {
+    width: 50px;
+    height: 50px;
+}
+
+.status {
+    margin-top: 20px;
+    display: block;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pagination span {
+    cursor: pointer
+}
