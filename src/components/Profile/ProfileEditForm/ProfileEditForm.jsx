@@ -1,18 +1,17 @@
-import { Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input, Checkbox } from 'antd';
 import React from 'react';
 
 const ProfileEditForm = (props) => {
 
-    const { Option } = Select;
-
     const onFinish = (data) => {
         console.log(data);
         props.offEditMode();
-        props.editProfile()
+        props.saveProfile(data)
     };
 
   return (
     <Form
+        style={{marginTop: '20px'}}
         name="basic"
         labelCol={{
             span: 4,
@@ -21,38 +20,39 @@ const ProfileEditForm = (props) => {
             span: 8,
         }}
         onFinish={onFinish}
+        initialValues={props.initialValues}
         >
-        <Form.Item label="Username" name="username" rules={[{required: true, message: 'Please input your username!',},]}>
+        <Form.Item label="Username" name="fullName" rules={[{required: true, message: 'Please input your username!'}]}>
             <Input />
         </Form.Item>
-        <Form.Item label="Looking for a job" name="lookingJob" rules={[{required: true, message: 'Please select something!',},]}>
-            <Select placeholder="Select yes or no">
-                <Option value="Yes">yes</Option>
-                <Option value="No">no</Option>
-            </Select>
+        <Form.Item label="Looking for a job" name="lookingForAJob" valuePropName="checked">
+            <Checkbox></Checkbox>
         </Form.Item>
-        <Form.Item label="My skills" name="skills">
+        <Form.Item label="About me" name="aboutMe">
             <Input />
         </Form.Item>
-        <Form.Item label="Facebook" name="facebook">
+        <Form.Item label="My skills" name="lookingForAJobDescription">
             <Input />
         </Form.Item>
-        <Form.Item label="Website" name="website">
+        <Form.Item label="Facebook" name={['contacts', 'facebook']}>
             <Input />
         </Form.Item>
-        <Form.Item label="Vk" name="vk">
+        <Form.Item label="Website" name={['contacts', 'website']}>
             <Input />
         </Form.Item>
-        <Form.Item label="Instagram" name="instagram">
+        <Form.Item label="Vk" name={['contacts', 'vk']}>
             <Input />
         </Form.Item>
-        <Form.Item label="Youtube" name="youtube">
+        <Form.Item label="Instagram" name={['contacts', 'instagram']}>
             <Input />
         </Form.Item>
-        <Form.Item label="Github" name="github">
+        <Form.Item label="Youtube" name={['contacts', 'youtube']}>
             <Input />
         </Form.Item>
-        <Form.Item label="Main Link" name="mainlink">
+        <Form.Item label="Github" name={['contacts', 'github']}>
+            <Input />
+        </Form.Item>
+        <Form.Item label="Main Link" name={['contacts', 'mainLink']}>
             <Input />
         </Form.Item>
         <Form.Item

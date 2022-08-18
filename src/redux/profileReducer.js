@@ -3,7 +3,8 @@ import { profileAPI } from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
-const UPLOAD_PHOTO = 'UPLOAD_PHOTO'
+const UPLOAD_PHOTO = 'UPLOAD_PHOTO';
+const SAVE_PROFILE = 'SAVE_PROFILE';
 
 let initialState = {
     posts: [
@@ -43,6 +44,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             }
+        case SAVE_PROFILE: 
+            return {
+                ...state,
+                profile: {...state.profile, profile: action.profile}
+            }
         default:
             return state;
     }
@@ -74,6 +80,13 @@ export const uploadPhotoSuccess = (photos) => {
     }
 }
 
+// export const saveProfileSuccess = (profile) => {
+//     return {
+//         type: SAVE_PROFILE,
+//         profile
+//     }
+// }
+
 
 export const getProfile = (userId) => {
     return (dispatch) => {
@@ -95,7 +108,6 @@ export const updateUserStatus = (status) => {
     return (dispatch) => {
         profileAPI.updateUserStatus(status).then(response => {
             if (response.data.resultCode === 0) {
-                console.log(response.data)
                 dispatch(setStatus(status));
             }
         })
@@ -106,21 +118,27 @@ export const uploadPhoto = (photo) => {
     return (dispatch) => {
         profileAPI.uploadPhoto(photo).then(response => {
             if (response.data.resultCode === 0) {
-                console.log(response.data)
                 dispatch(uploadPhotoSuccess(response.data.data.photos));
             }
         })
     }
 }
 
-export const saveProfile = (photo) => {
+export const saveProfilePhoto = (photo) => {
     return (dispatch) => {
         profileAPI.uploadPhoto(photo).then(response => {
             if (response.data.resultCode === 0) {
-                console.log(response.data)
                 dispatch(uploadPhotoSuccess(response.data.data.photos));
             }
         })
+    }
+}
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId
+    const response = await profileAPI.saveProfile(profile)
+    if (response.data.resultCode === 0) {
+        dispatch(getProfile(userId));
     }
 }
 
