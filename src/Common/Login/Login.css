@@ -1,0 +1,9 @@
+.form {
+    margin-top: 80px;
+}
+
+.incorrect {
+    padding-left: 166px;
+    margin-bottom: 10px;
+    color: red;
+}
