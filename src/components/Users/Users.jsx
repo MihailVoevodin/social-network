@@ -33,10 +33,6 @@ const Users = (props) => {
                             {u.name}
                             <span className={s.status}>{u.status}</span>
                         </div>
-                        <div>
-                            <div>{''}</div>
-                            <div>{''}</div>
-                        </div>
                     </div>
                 </div>
                 )
