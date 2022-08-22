@@ -11,6 +11,7 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './Common/Login/Login';
 import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { initializingApp } from './redux/appReducer';
 import Spinner from './Common/Spinner/Spinner'
 
@@ -32,6 +33,7 @@ class App extends React.Component {
               <Navbar store={this.props.store} />
               <div className='app-wrapper__content'>
                   <Routes>
+                      <Route path="/" element={<Navigate to="/profile" />} />
                       <Route  path="/dialogs/*" 
                               element={<DialogsContainer />}/>
                       <Route path='/profile/:userId' element={<ProfileContainer/>}/>

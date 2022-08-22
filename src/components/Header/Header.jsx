@@ -1,18 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from './Header.module.css';
+import { Button, Tooltip } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
+import styles from './Header.module.css';
 import logo from '../../assets/img/logo.png'
 
 const Header = (props) => {
     return (
-        <header className={s.header}>
-            <img src={logo} alt="" />
+        <header className={styles.header}>
+            <img className={styles.logo} src={logo} alt="" />
 
             <div>
                 {props.auth.isAuth ? 
-                <div>
-                    <span>{props.auth.login}</span>
-                    <button onClick={props.logout}>Logout</button>
+                <div className={styles.loginArea}>
+                    <img className={styles.photo} src={props.profile ? props.profile.photos.small : null} alt=''/>
+                    <span className={styles.login}>{props.auth.login}</span>
+                    <Tooltip className={styles.logout} title='Log Out'>
+                        <Button className={styles.logoutBtn} onClick={props.logout}><LogoutOutlined /></Button>
+                    </Tooltip>
                 </div>
                 : <NavLink to="/login">LogIn</NavLink>}
             </div>
