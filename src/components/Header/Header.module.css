@@ -1,10 +1,48 @@
 .header {
     grid-area: h;    
-    background-color: green;
+    background-color: #240090;
+    opacity: 0.9;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    color: white;
 }
 .header img {
     width: 60px;
-    height: 100%;
+    height: 60px;
+}
+
+.loginArea {
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+.photo {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.logoutBtn {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 26px;
+    color: inherit;
+    background-color: transparent;
+    /* отображаем курсор в виде руки при наведении; некоторые
+    считают, что необходимо оставлять стрелочный вид для кнопок */
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+    background-color: transparent;
+    color: red;
 }
