@@ -15,6 +15,7 @@ class UsersContainer extends React.Component  {
     }
     
     render() {
+        debugger
         return (
             <>{this.props.isFetching ? <Spinner/> :
                 <Users  users={this.props.users}
